@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>iTurf Admin</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Outfit:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="admin-page">
+      <section class="admin-section admin-section-single" id="admin-section">
+        <div class="admin-header">
+          <h2>Admin panel</h2>
+          <div class="admin-header-actions">
+            <a href="sales.html" class="logout-btn admin-nav-button">Sales report <span>↗</span></a>
+            <a href="settings.html" class="logout-btn admin-nav-button">Settings <span>⚙</span></a>
+            <a href="index.html" class="logout-btn admin-nav-button" id="back-home-btn">Back to site <span>←</span></a>
+            <button type="button" class="logout-btn admin-nav-button" id="logout-btn">Log out <span>↪</span></button>
+          </div>
+        </div>
+
+        <form class="admin-secret-login" id="admin-secret-login">
+          <label>
+            Admin secret code
+            <input id="admin-secret-code" type="password" inputmode="numeric" autocomplete="one-time-code" required placeholder="Enter secret code" />
+          </label>
+          <button type="submit" class="admin-refresh-btn">Unlock admin</button>
+          <p id="admin-login-message" aria-live="polite"></p>
+        </form>
+
+        <form class="admin-secret-login" id="admin-credentials-login" hidden>
+          <label>
+            Admin username
+            <input id="admin-username" type="text" autocomplete="username" required placeholder="Username" />
+          </label>
+          <label>
+            Admin password
+            <input id="admin-password" type="password" autocomplete="current-password" required placeholder="Password" />
+          </label>
+          <button type="submit" class="admin-refresh-btn">Open dashboard</button>
+          <p id="admin-credentials-message" aria-live="polite"></p>
+        </form>
+
+        <div class="admin-panel" id="admin-panel" hidden>
+          <div class="admin-dashboard" id="admin-dashboard">
+            <div class="admin-dashboard-heading">
+              <div>
+                <p class="admin-eyebrow">Operations overview</p>
+              </div>
+              <span class="admin-live-status"><i></i> Live</span>
+            </div>
+            <div class="admin-stats-grid" id="admin-stats-grid"></div>
+            <div class="admin-toolbar">
+              <label class="admin-search">
+                <span>Find a reservation</span>
+                <input id="admin-search" type="search" placeholder="Name, phone, turf or slot" />
+              </label>
+              <label class="admin-filter">
+                <span>Show</span>
+                <select id="admin-filter">
+                  <option value="pending">Pending</option>
+                  <option value="approved">Approved</option>
+                  <option value="all">All reservations</option>
+                </select>
+              </label>
+              <button type="button" class="admin-refresh-btn" id="admin-refresh-btn">Refresh</button>
+              <span class="admin-updated" id="admin-updated">Waiting for data</span>
+            </div>
+            <div class="payment-list-section">
+              <div class="payment-list-heading">
+                <h3>Approved reservations</h3>
+                <span id="paid-reservation-count"></span>
+              </div>
+              <div id="payment-list" class="payment-list"></div>
+            </div>
+            <section class="pricing-editor" aria-labelledby="pricing-title">
+              <div class="sales-section-heading">
+                <div>
+                  <p class="admin-eyebrow">Live booking prices</p>
+                  <h3 id="pricing-title">Turf pricing</h3>
+                </div>
+                <span id="pricing-updated">Current rates</span>
+              </div>
+              <form id="pricing-form" class="pricing-form">
+                <label>Big Turf · morning<input name="bigMorning" type="number" min="0" step="1" required /></label>
+                <label>Big Turf · afternoon / evening<input name="bigLater" type="number" min="0" step="1" required /></label>
+                <label>Small Turf · all day<input name="smallAllDay" type="number" min="0" step="1" required /></label>
+                <button type="submit" class="admin-refresh-btn">Save prices</button>
+              </form>
+              <p id="pricing-message" class="pricing-message" aria-live="polite"></p>
+            </section>
+          </div>
+
+          <div class="admin-approval-section">
+            <div class="payment-list-heading">
+              <h3>Reservation approvals</h3>
+              <span id="pending-reservation-count"></span>
+            </div>
+            <div id="admin-request-list" class="admin-request-list"></div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>

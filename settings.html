@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>iTurf Admin Settings</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="settings-page">
+      <header class="sales-header">
+        <div>
+          <p class="admin-eyebrow">Admin profile</p>
+          <h1>Settings</h1>
+          <p>Control admin access and booking prices.</p>
+        </div>
+        <div class="sales-header-actions">
+          <a href="admin.html" class="back-button">← Dashboard</a>
+          <a href="index.html" class="back-button">Back to site</a>
+        </div>
+      </header>
+
+      <form id="settings-verify-form" class="settings-card" hidden>
+        <section class="settings-section">
+          <p class="admin-eyebrow">Verify identity</p>
+          <h2>Current credentials</h2>
+          <label>Current secret code<input name="currentCode" type="password" required /></label>
+          <label>Current username<input name="currentUsername" type="text" required /></label>
+          <label>Current password<input name="currentPassword" type="password" required /></label>
+        </section>
+        <button class="admin-refresh-btn" type="submit">Verify and enter new credentials</button>
+        <p id="settings-message" class="pricing-message" aria-live="polite"></p>
+      </form>
+      <section id="settings-locked" class="settings-card">
+        <h2>Admin login required</h2>
+        <p>Open Settings from the authenticated admin dashboard.</p>
+        <a href="admin.html" class="back-button">← Dashboard</a>
+      </section>
+    </main>
+    <script src="app.js"></script>
+  </body>
+</html>

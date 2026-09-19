@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>I'TURF Café - Slot Booking</title>
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- HEADER -->
+    <header class="header">
+        <div>
+            <h1>I'TURF <span>Café</span></h1>
+            <p>CRICKET · FOOD · GOOD VIBES</p>
+            <p class="welcome-message" id="welcome-message" aria-live="polite"></p>
+        </div>
+
+        <button class="hold-btn">Hold a slot</button>
+    </header>
+
+
+    <!-- DATE SECTION -->
+    <section class="date-section">
+
+        <div class="date-title">
+            <h2>Select Date</h2>
+            <p>Today · 17 Sept 2026</p>
+        </div>
+
+        <div class="dates">
+
+            <button class="date-card active">
+                <small>Thu</small>
+                <strong>17</strong>
+                <span>Sep</span>
+            </button>
+
+            <button class="date-card">
+                <small>Fri</small>
+                <strong>18</strong>
+                <span>Sep</span>
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- TURF SELECTOR -->
+    <section class="turf-selector">
+
+        <button class="turf-btn active" data-turf="big">
+            🏏 BIG TURF
+        </button>
+
+        <button class="turf-btn" data-turf="small">
+            🏏 SMALL TURF
+        </button>
+
+    </section>
+
+    <p class="turf-info" id="turf-info"></p>
+
+
+    <!-- MORNING -->
+
+    <section class="time-section">
+
+        <div class="section-title">
+            <h2>☀ Morning</h2>
+            <span>6:00 am – 11:00 am</span>
+        </div>
+
+        <div class="slots">
+
+            <button class="slot">6:00 am</button>
+            <button class="slot">7:00 am</button>
+            <button class="slot">8:00 am</button>
+
+            <button class="slot">9:00 am</button>
+
+            <button class="slot">10:00 am</button>
+            <button class="slot">11:00 am</button>
+
+        </div>
+
+    </section>
+
+
+    <!-- AFTERNOON -->
+
+    <section class="time-section">
+
+        <div class="section-title">
+            <h2>☀ Afternoon</h2>
+            <span>12:00 pm – 5:00 pm</span>
+        </div>
+
+        <div class="slots">
+
+            <button class="slot">12:00 pm</button>
+            <button class="slot">1:00 pm</button>
+            <button class="slot">2:00 pm</button>
+            <button class="slot">3:00 pm</button>
+
+            <button class="slot">4:00 pm</button>
+
+            <button class="slot">5:00 pm</button>
+
+        </div>
+
+    </section>
+
+
+    <!-- EVENING -->
+
+    <section class="time-section">
+
+        <div class="section-title">
+            <h2>🌙 Evening</h2>
+            <span>6:00 pm – 12:00 am</span>
+        </div>
+
+        <div class="slots">
+
+            <button class="slot">6:00 pm</button>
+            <button class="slot">7:00 pm</button>
+
+            <button class="slot">8:00 pm</button>
+            <button class="slot">9:00 pm</button>
+
+            <button class="slot">10:00 pm</button>
+            <button class="slot">11:00 pm</button>
+
+            <button class="slot">12:00 am</button>
+
+        </div>
+
+    </section>
+
+
+    <!-- LEGEND -->
+
+    <div class="legend">
+
+        <div>
+            <span class="dot available-dot"></span>
+            Available
+        </div>
+
+        <div>
+            <span class="dot booked-dot"></span>
+            Booked
+        </div>
+
+        <div>
+            <span class="dot selected-dot"></span>
+            Selected
+        </div>
+
+    </div>
+
+
+    <!-- BOOKING BAR -->
+
+    <div class="booking-bar">
+
+        <div>
+            <small>Selected Slot</small>
+
+            <h3 id="selectedSlot">
+                Select a time
+            </h3>
+            <p id="selectedPrice">Select slots to see the total</p>
+        </div>
+
+        <button id="continueBtn" disabled>
+            Continue →
+            <span>Hold this slot</span>
+        </button>
+
+    </div>
+
+    <form class="slot-book-form" id="book-form" hidden>
+        <input id="when" name="when" type="hidden" value="">
+        <input id="slot" name="slot" type="hidden" value="">
+        <input id="turf" name="turf" type="hidden" value="big">
+        <label>
+            Your name
+            <input type="text" name="name" autocomplete="name" required placeholder="Name">
+        </label>
+        <label>
+            Phone
+            <input type="tel" name="phone" autocomplete="tel" required placeholder="98XXXXXXXX">
+        </label>
+        <button type="submit">Send booking request</button>
+        <p class="slot-form-note">Cricket ball provided on both turfs. Your request remains pending until admin approval.</p>
+    </form>
+
+    <section class="customer-booking-status" id="customer-booking-status" hidden>
+        <p class="ticket-kicker">Your reservation</p>
+        <h2 id="customer-booking-title"></h2>
+        <p id="customer-booking-details"></p>
+        <strong id="customer-booking-state"></strong>
+    </section>
+
+</div>
+
+<a class="admin-footer-link" href="admin.html">Admin access</a>
+
+<script src="app.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>iTurf Sales Report</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="sales-page">
+      <header class="sales-header">
+        <div>
+          <p class="admin-eyebrow">iTurf operations</p>
+          <h1>Sales report</h1>
+          <p>Track monthly bookings, approvals, and confirmed turf revenue.</p>
+        </div>
+        <div class="sales-header-actions">
+          <button type="button" class="admin-refresh-btn" id="sales-refresh-btn">Refresh</button>
+          <a href="admin.html" class="logout-btn back-button">← Dashboard</a>
+        </div>
+      </header>
+
+      <section class="sales-controls">
+        <label>
+          Report month
+          <input type="month" id="sales-month" />
+        </label>
+        <span id="sales-updated">Loading report...</span>
+      </section>
+
+      <section class="sales-stats" id="sales-stats" aria-live="polite"></section>
+
+      <section class="sales-breakdown">
+        <div class="sales-section-heading">
+          <div>
+            <p class="admin-eyebrow">Reservation ledger</p>
+            <h2>Monthly bookings</h2>
+          </div>
+          <span id="sales-booking-count"></span>
+        </div>
+        <div id="sales-list" class="sales-list"></div>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
