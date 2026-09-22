@@ -69,8 +69,21 @@ jobs:
       with:
         name: node-app
 
+    - name: Check deployment configuration
+      id: deploy-config
+      env:
+        AZURE_WEBAPP_PUBLISH_PROFILE: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
+      run: |
+        if [ "${AZURE_WEBAPP_NAME}" = "your-app-name" ] || [ -z "${AZURE_WEBAPP_PUBLISH_PROFILE}" ]; then
+          echo "enabled=false" >> "$GITHUB_OUTPUT"
+          echo "Azure deployment skipped because the app name or publish profile has not been configured."
+        else
+          echo "enabled=true" >> "$GITHUB_OUTPUT"
+        fi
+
     - name: 'Deploy to Azure WebApp'
       id: deploy-to-webapp
+      if: steps.deploy-config.outputs.enabled == 'true'
       uses: azure/webapps-deploy@v2
       with:
         app-name: ${{ env.AZURE_WEBAPP_NAME }}
