@@ -74,7 +74,7 @@ jobs:
       env:
         AZURE_WEBAPP_PUBLISH_PROFILE: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
       run: |
-        if [ "${AZURE_WEBAPP_NAME}" = "your-app-name" ] || [ -z "${AZURE_WEBAPP_PUBLISH_PROFILE}" ]; then
+        if [ "${AZURE_WEBAPP_NAME}" = "iTurfkld" ] || [ -z "${AZURE_WEBAPP_PUBLISH_PROFILE}" ]; then
           echo "enabled=false" >> "$GITHUB_OUTPUT"
           echo "Azure deployment skipped because the app name or publish profile has not been configured."
         else
